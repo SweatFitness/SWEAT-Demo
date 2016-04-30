@@ -1,3 +1,7 @@
 <App Theme="Basic">
-</App>
+    <iOS.StatusBarConfig Style="Light" />
 
+    <ux:Include File="Resources.ux" />
+    <ux:Include File="loginSignup.ux" />
+
+</App>

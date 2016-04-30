@@ -8,6 +8,8 @@
         "Fuse.Designer",
         "Fuse.Drawing",
         "Fuse.Drawing.Primitives",
+                 "Experimental.Physics",
+
         "Fuse.Effects",
         "Fuse.Elements",
         "Fuse.Entities",
@@ -26,6 +28,9 @@
         "Uno.Geometry"
   ],
   "Includes": [
-    "*"
+    "HidingPanel.ux:UXFile",
+    "MainView.ux:UXFile",
+    "Resources.ux:UXFile",
+    "StateAnimation.ux:UXFile"
   ]
 }
