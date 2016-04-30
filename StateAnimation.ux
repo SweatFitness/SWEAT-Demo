@@ -29,6 +29,49 @@
         <Set showGreenRect.Value="true" Delay="0.5"/>
         <Set moveLogo.Value="true" />
     </State>
+    <State Name="genderState">
+        <Set whiteRectCornerRadiusAttractor.Value="5"/>
+        <Move   Target="whiteRect" RelativeTo="PositionOffset" RelativeNode="genderForm" Vector="1" Duration="0.4" Delay="0.2" DurationBack="0" Easing="CubicInOut"/>
+        <Resize Target="whiteRect" RelativeTo="Size"           RelativeNode="genderForm" Vector="1" Duration="0.4" Delay="0.2" DurationBack="0" Easing="CubicInOut"/>
+        <Move   Target="greenRect" RelativeTo="PositionOffset" RelativeNode="submitButton" Vector="1" Duration="0.4" Delay="0.5" DurationBack="0" Easing="CubicInOut"/>
+        <Resize Target="greenRect" RelativeTo="Size"           RelativeNode="submitButton" Vector="1" Duration="0.4" Delay="0.5" DurationBack="0" Easing="CubicInOut"/>
+
+        <Set whiteRect.LayoutMaster="genderForm" Delay="0.6"/>
+        <Set greenRect.LayoutMaster="submitButton" Delay="0.9"/>
+
+        <Change genderForm.IsEnabled="true" Delay="0.6" DelayBack="0"/>
+        <Set showGreenRect.Value="true" Delay="0.5"/>
+        <Set moveLogo.Value="true" />
+    </State>
+    <State Name="levelState">
+        <Set whiteRectCornerRadiusAttractor.Value="5"/>
+        <Move   Target="whiteRect" RelativeTo="PositionOffset" RelativeNode="levelForm" Vector="1" Duration="0.4" Delay="0.2" DurationBack="0" Easing="CubicInOut"/>
+        <Resize Target="whiteRect" RelativeTo="Size"           RelativeNode="levelForm" Vector="1" Duration="0.4" Delay="0.2" DurationBack="0" Easing="CubicInOut"/>
+        <Move   Target="greenRect" RelativeTo="PositionOffset" RelativeNode="submitButton" Vector="1" Duration="0.4" Delay="0.5" DurationBack="0" Easing="CubicInOut"/>
+        <Resize Target="greenRect" RelativeTo="Size"           RelativeNode="submitButton" Vector="1" Duration="0.4" Delay="0.5" DurationBack="0" Easing="CubicInOut"/>
+
+        <Set whiteRect.LayoutMaster="levelForm" Delay="0.6"/>
+        <Set greenRect.LayoutMaster="submitButton" Delay="0.9"/>
+
+        <Change levelForm.IsEnabled="true" Delay="0.6" DelayBack="0"/>
+        <Set showGreenRect.Value="true" Delay="0.5"/>
+        <Set moveLogo.Value="true" />
+    </State>
+    <State Name="goalState">
+        <Set whiteRectCornerRadiusAttractor.Value="5"/>
+        <Move   Target="whiteRect" RelativeTo="PositionOffset" RelativeNode="goalForm" Vector="1" Duration="0.4" Delay="0.2" DurationBack="0" Easing="CubicInOut"/>
+        <Resize Target="whiteRect" RelativeTo="Size"           RelativeNode="goalForm" Vector="1" Duration="0.4" Delay="0.2" DurationBack="0" Easing="CubicInOut"/>
+        <Move   Target="greenRect" RelativeTo="PositionOffset" RelativeNode="submitButton" Vector="1" Duration="0.4" Delay="0.5" DurationBack="0" Easing="CubicInOut"/>
+        <Resize Target="greenRect" RelativeTo="Size"           RelativeNode="submitButton" Vector="1" Duration="0.4" Delay="0.5" DurationBack="0" Easing="CubicInOut"/>
+
+        <Set whiteRect.LayoutMaster="goalForm" Delay="0.6"/>
+        <Set greenRect.LayoutMaster="submitButton" Delay="0.9"/>
+
+        <Change goalForm.IsEnabled="true" Delay="0.6" DelayBack="0"/>
+        <Set showGreenRect.Value="true" Delay="0.5"/>
+        <Set moveLogo.Value="true" />
+    </State>
+
     <State Name="mainState">
         <Move   Target="whiteRect" RelativeTo="PositionOffset" RelativeNode="mainPanel" Vector="1" Duration="0.4" Delay="0.05" Easing="CubicInOut" DurationBack="0"/>
         <Resize Target="whiteRect" RelativeTo="Size"           RelativeNode="mainPanel" Vector="1" Duration="0.4" Delay="0.05" Easing="CubicInOut" DurationBack="0"/>

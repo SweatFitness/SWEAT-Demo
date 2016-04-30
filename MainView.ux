@@ -2,7 +2,10 @@
     <iOS.StatusBarConfig Style="Light" />
 
     <ux:Include File="Resources.ux" />
-    <ClientPanel Color="#d4fcaf">
+    <!--     <ClientPanel Color="#d4fcaf"> -->
+
+
+    <ClientPanel Color="Black">
         <HidingPanel ux:Name="topPanel">
             <GridLayout Rows="60,1*"/>
             <WhileEnabled>
@@ -42,6 +45,104 @@
             </HidingPanel>
         </HidingPanel>
 
+        <HidingPanel ux:Name="genderForm" Width="90%" Height="45%" Offset="0%,10%">
+            <StackPanel>
+                <Grid RowCount="2" Margin="20, 60">
+                <Text TextAlignment="Center">Your Gender?</Text>
+                <Grid Columns="70,1*,70">
+                    <Text ux:Name="genderTextMale" TextColor="Red">Male</Text>
+                    <Switch>
+                        <WhileTrue>
+                            <Change genderTextMale.TextColor="Black" Duration="0.5"
+                                Easing="CircularInOut" />
+                            <Change genderTextFemale.TextColor="Red" Duration="0.5"
+                                Easing="CircularInOut" />
+                        </WhileTrue>
+                    </Switch>
+                    <Text ux:Name="genderTextFemale" TextColor="Black">Female</Text>
+                </Grid>
+                </Grid>
+                </StackPanel>
+
+            <Panel>
+                <Panel ux:Name="toLevel" Width="100" Offset="0%,50%" Height="50" HitTestMode="LocalBoundsAndChildren">
+                    <Text Value="NEXT" Alignment="Center" TextColor="White"/>
+                    <Clicked>
+                        <Set state.Active="levelState" />
+                    </Clicked>
+                </Panel>
+                <Panel ux:Name="toLevelButtonCollapsed" Width="10" Offset="0%,50%" Height="10"/>
+            </Panel>
+        </HidingPanel>
+
+        <HidingPanel ux:Name="levelForm" Width="90%" Height="45%" Offset="0%,10%">
+            <StackPanel>
+                <Grid Rows="2*, 1*, 1*, 1*" Margin="10,40,30,60">
+                    <Text TextAlignment="Center" TextWrapping="Wrap">What describes your workout experience most accurately?</Text>
+                    <Grid Columns="1*, 1*">
+                        <Text>Beginner</Text>
+                        <Switch>
+                        </Switch>
+                    </Grid>
+                    <Grid Columns="1*, 1*">
+                        <Text>Expert</Text>
+                        <Switch>
+                        </Switch>
+                    </Grid>
+                    <Grid Columns="1*, 1*">
+                        <Text>Neighter, in between</Text>
+                        <Switch>
+                        </Switch>
+                    </Grid>
+                </Grid>
+            </StackPanel>
+
+            <Panel>
+                <Panel ux:Name="toGoal" Width="100" Offset="0%,50%" Height="50" HitTestMode="LocalBoundsAndChildren">
+                    <Text Value="NEXT" Alignment="Center" TextColor="White"/>
+                    <Clicked>
+                        <Set state.Active="goalState" />
+                    </Clicked>
+                </Panel>
+                <Panel ux:Name="toGoalButtonCollapsed" Width="10" Offset="0%,50%" Height="10"/>
+            </Panel>
+        </HidingPanel>
+
+
+        <HidingPanel ux:Name="goalForm" Width="90%" Height="45%" Offset="0%,10%">
+            <StackPanel>
+                <Grid Rows="2*, 1*, 1*, 1*" Margin="10,40,30,60">
+                    <Text TextAlignment="Center" TextWrapping="Wrap">What are your goals? (Choose as many as you want)</Text>
+                    <Grid Columns="1*, 1*">
+                        <Text>Get Lean</Text>
+                        <Switch>
+                        </Switch>
+                    </Grid>
+                    <Grid Columns="1*, 1*">
+                        <Text>Get Fit</Text>
+                        <Switch>
+                        </Switch>
+                    </Grid>
+                    <Grid Columns="1*, 1*">
+                        <Text>Build Muscles</Text>
+                        <Switch>
+                        </Switch>
+                    </Grid>
+                </Grid>
+            </StackPanel>
+
+            <Panel>
+                <Panel ux:Name="toExpectation" Width="100" Offset="0%,50%" Height="50" HitTestMode="LocalBoundsAndChildren">
+                    <Text Value="NEXT" Alignment="Center" TextColor="White"/>
+                    <Clicked>
+                        <Set state.Active="mainState" />
+                    </Clicked>
+                </Panel>
+                <Panel ux:Name="toExpectationButtonCollapsed" Width="10" Offset="0%,50%" Height="10"/>
+            </Panel>
+        </HidingPanel>
+
+
         <HidingPanel ux:Name="signupForm" Width="90%" Height="45%" Offset="0%,10%">
             <Grid RowCount="3" Margin="30,40,30,60">
                 <TextInput ux:Name="usernameTI" PlaceholderText="Username" Opacity="1" Alignment="VerticalCenter" PlaceholderColor="#888"/>
@@ -58,7 +159,7 @@
                 <Panel ux:Name="submitButton" Width="100" Offset="0%,50%" Height="50" HitTestMode="LocalBoundsAndChildren">
                     <Text Value="NEXT" Alignment="Center" TextColor="White"/>
                     <Clicked>
-                        <Set state.Active="mainState" />
+                        <Set state.Active="genderState" />
                     </Clicked>
                 </Panel>
                 <Panel ux:Name="submitButtonCollapsed" Width="10" Offset="0%,50%" Height="10"/>
@@ -70,7 +171,7 @@
             <Panel ux:Name="loginButton" Width="120" Height="50" Alignment="Top" HitTestMode="LocalBounds">
                 <Text Value="LOGIN" Alignment="Center" TextColor="#5E2E91" HitTestMode="LocalBounds"/>
                 <Clicked>
-                    <Set state.Active="signupFormState" />
+                    <Set state.Active="mainState" />
                 </Clicked>
             </Panel>
             <Panel ux:Name="signupButton" Width="120" Height="50" Alignment="Top" HitTestMode="LocalBounds">
