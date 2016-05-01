@@ -94,4 +94,61 @@
 
         <BringToFront Target="addButtonPanel" />
     </State>
+
+    <State Name="createWorkoutDateTimeState">
+        <Move   Target="whiteRect" RelativeTo="PositionOffset" RelativeNode="createWorkoutDateTimeForm" Vector="1" Duration="0.4" Delay="0.05" Easing="CubicInOut" DurationBack="0"/>
+        <Resize Target="whiteRect" RelativeTo="Size"           RelativeNode="createWorkoutDateTimeForm" Vector="1" Duration="0.4" Delay="0.05" Easing="CubicInOut" DurationBack="0"/>
+        <Move Target="greenRect" RelativeTo="PositionOffset" RelativeNode="cancelButton" Vector="1" Duration="0.4" Delay="0.4" DurationBack="0" Easing="CubicInOut"/>
+        <Resize Target="greenRect" RelativeTo="Size"         RelativeNode="cancelButton" Vector="1" Duration="0.4" Delay="0.4" DurationBack="0" Easing="CubicInOut"/>
+
+        <Set whiteRect.LayoutMaster="createWorkoutDateTimeForm" Delay="0.45" />
+        <Set greenRect.LayoutMaster="cancelButton" Delay="0.85" />
+
+        <Change whiteRect.CornerRadius="25" Duration="0.2" DurationBack="0" />
+        <Set whiteRectCornerRadiusAttractor.Value="25"/>
+
+        <Change createWorkoutDateTimeForm.IsEnabled="true" Delay="0.9" />
+        <Change greenRect.Opacity="1" Duration="0" />
+        <Change cancelButton.IsEnabled="true" Delay="0.5"/>
+
+        <BringToFront Target="addButtonPanel" />
+    </State>
+
+    <State Name="createWorkoutLocationState">
+        <Move   Target="whiteRect" RelativeTo="PositionOffset" RelativeNode="createWorkoutLocationForm" Vector="1" Duration="0.4" Delay="0.05" Easing="CubicInOut" DurationBack="0"/>
+        <Resize Target="whiteRect" RelativeTo="Size"           RelativeNode="createWorkoutLocationForm" Vector="1" Duration="0.4" Delay="0.05" Easing="CubicInOut" DurationBack="0"/>
+        <Move Target="greenRect" RelativeTo="PositionOffset" RelativeNode="cancelButton" Vector="1" Duration="0.4" Delay="0.4" DurationBack="0" Easing="CubicInOut"/>
+        <Resize Target="greenRect" RelativeTo="Size"         RelativeNode="cancelButton" Vector="1" Duration="0.4" Delay="0.4" DurationBack="0" Easing="CubicInOut"/>
+
+        <Set whiteRect.LayoutMaster="createWorkoutLocationForm" Delay="0.45" />
+        <Set greenRect.LayoutMaster="cancelButton" Delay="0.85" />
+
+        <Change whiteRect.CornerRadius="25" Duration="0.2" DurationBack="0" />
+        <Set whiteRectCornerRadiusAttractor.Value="25"/>
+
+        <Change createWorkoutLocationForm.IsEnabled="true" Delay="0.9" />
+        <Change greenRect.Opacity="1" Duration="0" />
+        <Change cancelButton.IsEnabled="true" Delay="0.5"/>
+
+        <BringToFront Target="addButtonPanel" />
+    </State>
+
+    <State Name="createWorkoutTypeState">
+        <Move   Target="whiteRect" RelativeTo="PositionOffset" RelativeNode="createWorkoutTypeForm" Vector="1" Duration="0.4" Delay="0.05" Easing="CubicInOut" DurationBack="0"/>
+        <Resize Target="whiteRect" RelativeTo="Size"           RelativeNode="createWorkoutTypeForm" Vector="1" Duration="0.4" Delay="0.05" Easing="CubicInOut" DurationBack="0"/>
+        <Move Target="greenRect" RelativeTo="PositionOffset" RelativeNode="cancelButton" Vector="1" Duration="0.4" Delay="0.4" DurationBack="0" Easing="CubicInOut"/>
+        <Resize Target="greenRect" RelativeTo="Size"         RelativeNode="cancelButton" Vector="1" Duration="0.4" Delay="0.4" DurationBack="0" Easing="CubicInOut"/>
+
+        <Set whiteRect.LayoutMaster="createWorkoutTypeForm" Delay="0.45" />
+        <Set greenRect.LayoutMaster="cancelButton" Delay="0.85" />
+
+        <Change whiteRect.CornerRadius="25" Duration="0.2" DurationBack="0" />
+        <Set whiteRectCornerRadiusAttractor.Value="25"/>
+
+        <Change createWorkoutTypeForm.IsEnabled="true" Delay="0.9" />
+        <Change greenRect.Opacity="1" Duration="0" />
+        <Change cancelButton.IsEnabled="true" Delay="0.5"/>
+
+        <BringToFront Target="addButtonPanel" />
+    </State>
 </StateGroup>

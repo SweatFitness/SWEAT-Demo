@@ -4,7 +4,6 @@
     <ux:Include File="Resources.ux" />
     <!--     <ClientPanel Color="#d4fcaf"> -->
 
-
     <ClientPanel Color="Black">
         <HidingPanel ux:Name="topPanel">
             <GridLayout Rows="60,1*"/>
@@ -45,6 +44,122 @@
             </HidingPanel>
         </HidingPanel>
 
+        <HidingPanel ux:Name="createWorkoutDateTimeForm" Width="90%" Height="80%">
+            <Grid RowCount="3" Rows="50,65,65" Margin="20,50">
+                <Text TextAlignment="Center" TextWrapping="Wrap">When are you planning on working out?</Text>
+                <Text>Date</Text>
+                <Text>Time</Text>
+            </Grid>
+            <StackPanel Alignment="Bottom" Margin="0,0,0,40">
+                <Panel Width="100" Height="50" HitTestMode="LocalBoundsAndChildren">
+                    <Text TextColor="White" Value="NEXT" Alignment="Center" />
+                    <Rectangle ux:Binding="Appearance" Color="Green" CornerRadius="25" />
+                    <Clicked>
+                        <Set state.Active="createWorkoutLocationState"/>
+                    </Clicked>
+                </Panel>
+            </StackPanel>
+        </HidingPanel>
+
+        <HidingPanel ux:Name="createWorkoutLocationForm" Width="90%" Height="80%">
+            <Grid RowCount="4" Rows="50,65,65,65" Margin="20,50">
+                <Text TextAlignment="Center" TextWrapping="Wrap">Where are you working out?</Text>
+                <Grid Columns="1*, 1*" Margin="20,0,20,0">
+                    <Text Alignment="Center">SPAC</Text>
+                    <Switch ux:Name="switchSPAC">
+                        <WhileTrue>
+                            <Set switchBlom.Value="False" />
+                            <Set switchPatten.Value="False" />
+                        </WhileTrue>
+                    </Switch>
+                </Grid>
+                <Grid Columns="1*, 1*" Margin="20,0,20,0">
+                    <Text Alignment="Center">Blom</Text>
+                    <Switch ux:Name="switchBlom">
+                        <WhileTrue>
+                            <Set switchSPAC.Value="False" />
+                            <Set switchPatten.Value="False" />
+                        </WhileTrue>
+                    </Switch>
+                </Grid>
+                <Grid Columns="1*, 1*" Margin="20,0,20,0">
+                    <Text Alignment="Center">Patten</Text>
+                    <Switch ux:Name="switchPatten">
+                        <WhileTrue>
+                            <Set switchBlom.Value="False" />
+                            <Set switchSPAC.Value="False" />
+                        </WhileTrue>
+                    </Switch>
+                </Grid>
+            </Grid>
+            <StackPanel Alignment="Bottom" Margin="0,0,0,40">
+                <Panel Width="100" Height="50" HitTestMode="LocalBoundsAndChildren">
+                    <Text TextColor="White" Value="NEXT" Alignment="Center" />
+                    <Rectangle ux:Binding="Appearance" Color="Green" CornerRadius="25" />
+                    <Clicked>
+                        <Set state.Active="createWorkoutTypeState"/>
+                    </Clicked>
+                </Panel>
+                <Panel Width="100" Height="50" Margin="0,10,0,10">
+                    <Text TextColor="White" Value="BACK" Alignment="Center" />
+                    <Rectangle ux:Binding="Appearance" Color="Gray" CornerRadius="25" />
+                    <Clicked>
+                        <Set state.Active="createWorkoutDateTimeState"/>
+                    </Clicked>
+                </Panel>
+            </StackPanel>
+        </HidingPanel>
+
+        <HidingPanel ux:Name="createWorkoutTypeForm" Width="90%" Height="80%">
+            <StackPanel Alignment="TopCenter" Margin="0,50,0,0">
+                <Text TextAlignment="Center" TextWrapping="Wrap">What type of workout?</Text>
+                <Text TextAlignment="Center" TextWrapping="Wrap">(Choose all that you'll be doing)</Text>
+                <Text TextAlignment="Left" Margin="0,20,0,0">Cardio</Text>
+                <Grid Columns="1*,1*" Margin="5,0,5,0">
+                    <Text Alignment="Center">Running</Text>
+                    <Switch />
+                </Grid>
+                <Grid Columns="1*,1*" Margin="5,0,5,0">
+                    <Text Alignment="Center">Cycling</Text>
+                    <Switch />
+                </Grid>
+                <Grid Columns="1*,1*" Margin="5,0,5,0">
+                    <Text Alignment="Center">Swimming</Text>
+                    <Switch />
+                </Grid>
+                <Text TextAlignment="Left" Margin="0,20,0,0">Weight</Text>
+                <Grid Columns="1*,1*" Margin="5,0,5,0">
+                    <Text Alignment="Center">Chest/Triceps</Text>
+                    <Switch />
+                </Grid>
+                <Grid Columns="1*,1*" Margin="5,0,5,0">
+                    <Text Alignment="Center">Back/Biceps</Text>
+                    <Switch />
+                </Grid>
+                <Grid Columns="1*,1*" Margin="5,0,5,0">
+                    <Text Alignment="Center">Legs/Shoulders</Text>
+                    <Switch />
+                </Grid>
+            </StackPanel>
+            <Grid Columns="1*,1*" Alignment="Bottom" Margin="0,0,0,40">
+                <Panel Width="100" Height="50" Margin="0,10,0,10">
+                    <Text TextColor="White" Value="BACK" Alignment="Center" />
+                    <Rectangle ux:Binding="Appearance" Color="Gray" CornerRadius="25" />
+                    <Clicked>
+                        <Set state.Active="createWorkoutLocationState"/>
+                    </Clicked>
+                </Panel>
+                <Panel Width="100" Height="50" HitTestMode="LocalBoundsAndChildren">
+                    <Text TextColor="White" Value="NEXT" Alignment="Center" />
+                    <Rectangle ux:Binding="Appearance" Color="Green" CornerRadius="25" />
+                    <Clicked>
+                        <Set state.Active="createWorkoutTypeState"/>
+                    </Clicked>
+                </Panel>
+            </Grid>
+        </HidingPanel>
+
+
         <HidingPanel ux:Name="genderForm" Width="90%" Height="45%" Offset="0%,10%">
             <StackPanel>
                 <Grid RowCount="2" Margin="20, 60">
@@ -77,7 +192,7 @@
 
         <HidingPanel ux:Name="levelForm" Width="90%" Height="45%" Offset="0%,10%">
             <StackPanel>
-                <Grid Rows="2*, 1*, 1*, 1*" Margin="10,40,30,60">
+                <Grid Rows="3*, 2*, 2*, 2*" Margin="10,40,30,60">
                     <Text TextAlignment="Center" TextWrapping="Wrap">What describes your workout experience most accurately?</Text>
                     <Grid Columns="1*, 1*">
                         <Text>Beginner</Text>
@@ -111,7 +226,7 @@
 
         <HidingPanel ux:Name="goalForm" Width="90%" Height="45%" Offset="0%,10%">
             <StackPanel>
-                <Grid Rows="2*, 1*, 1*, 1*" Margin="10,40,30,60">
+                <Grid Rows="3*, 2*, 2*, 2*" Margin="10,40,30,60">
                     <Text TextAlignment="Center" TextWrapping="Wrap">What are your goals? (Choose as many as you want)</Text>
                     <Grid Columns="1*, 1*">
                         <Text>Get Lean</Text>
@@ -185,6 +300,15 @@
         <Panel ux:Name="addButtonPanel">
             <HidingPanel ux:Name="addButton" Width="50" Height="50" Alignment="BottomRight" Margin="40" HitTestMode="LocalBoundsAndChildren">
                 <Text Value="+" FontSize="30" TextColor="White" Alignment="Center"/>
+                <Clicked>
+                    <Set state.Active="createWorkoutDateTimeState" />
+                </Clicked>
+            </HidingPanel>
+            <HidingPanel ux:Name="cancelButton" Width="50" Height="50" Alignment="TopRight" Margin="0,45,5,0" HitTestMode="LocalBoundsAndChildren">
+                <Text Value="x" Alignment="Center" TextColor="White"/>
+                <Clicked>
+                    <Set state.Active="mainState"/>
+                </Clicked>
             </HidingPanel>
             <Rectangle ux:Name="greenRect" Color="Green" LayoutMaster="submitButtonCollapsed" CornerRadius="25" Opacity="0">
                 <DropShadow />
@@ -193,6 +317,7 @@
                 </WhileTrue>
             </Rectangle>
         </Panel>
+        
         <Rectangle ux:Name="whiteRect2" Color="White" LayoutMaster="loginButton" Layer="Background" CornerRadius="25"/>
         <Rectangle ux:Name="whiteRect" Color="White" LayoutMaster="signupButton" Layer="Background" CornerRadius="25"/>
         
