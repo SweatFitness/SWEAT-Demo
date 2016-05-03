@@ -28,8 +28,8 @@
         "Uno.Geometry"
   ],
   "Includes": [
-    "HidingPanel.ux:UXFile",
     "Card.ux:UXFile",
+    "HidingPanel.ux:UXFile",
     "MainView.ux:UXFile",
     "Resources.ux:UXFile",
     "StateAnimation.ux:UXFile"

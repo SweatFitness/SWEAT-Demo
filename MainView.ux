@@ -235,13 +235,62 @@
                 var Observable = require("FuseJS/Observable");
         
                 var profiles = Observable(
-                    { resource : "profile1" },
-                    { resource : "profile2" },
-                    { resource : "profile3" },
-                    { resource : "profile4" },
-                    { resource : "profile5" },
-                    { resource : "profile6" },
-                    { resource : "profile7" }
+                    { resource : {
+                        CardName: "Martin Blumberg",
+                        CardFill: "#68C4DB",
+                        Location: "SPAC",
+                        UserImage: "profile1",
+                        TimeRange: "01:00PM - 02:00PM",
+                        TypeString: "Running, Chest/Triceps"
+                    } },
+                    { resource : {
+                        CardName: "Marcus Idon",
+                        CardFill: "#E9BD70",
+                        Location: "Blom",
+                        UserImage: "profile2",
+                        TimeRange: "01:00PM - 02:00PM",
+                        TypeString: "Running, Legs/Shoulders"
+                    } },
+                    { resource : {
+                        CardName: "Tom Clever",
+                        CardFill: "#93ADEF",
+                        Location: "SPAC",
+                        UserImage: "profile3",
+                        TimeRange: "01:00PM - 02:00PM",
+                        TypeString: "Cycling, Legs/Shoulders"
+                    } },
+                    { resource : {
+                        CardName: "John Evans",
+                        CardFill: "#FFA3A3",
+                        Location: "Patten",
+                        UserImage: "profile4",
+                        TimeRange: "01:15PM - 02:00PM",
+                        TypeString: "Running, Back/Biceps"
+                    } },
+                    { resource : {
+                        CardName: "Marshall Mason",
+                        CardFill: "#CBABD5",
+                        Location: "SPAC",
+                        UserImage: "profile5",
+                        TimeRange: "01:00PM - 01:45PM",
+                        TypeString: "Swimming, Chest/Triceps"
+                    } },
+                    { resource : {
+                        CardName: "Simon Gates",
+                        CardFill: "#6FC4AF",
+                        Location: "Blom",
+                        UserImage: "profile6",
+                        TimeRange: "01:30PM - 02:00PM",
+                        TypeString: "Swimming, Legs/Shoulders"
+                    } },
+                    { resource : {
+                        CardName: "Bobby Schumacher",
+                        CardFill: "#919ABB",
+                        Location: "Patten",
+                        UserImage: "profile7",
+                        TimeRange: "01:00PM - 01:30PM",
+                        TypeString: "Running, Back/Biceps"
+                    } }
                 );
 
                 module.exports = {
@@ -255,10 +304,10 @@
                 <LinearNavigation Duration="0.4" Easing="CircularOut"/>
                 <SwipeNavigate SwipeDirection="Left" />
                 <Each Items="{profiles}">
-                    <Card Name="{resource}" CachingMode="Never">
-                        <Image Source="{DataToResource resource}"/>
+                    <Card Name="{resource.UserImage}" CardName="{resource.CardName}" CardFill="{resource.CardFill}" TimeRange="{resource.TimeRange}" TypeString="{resource.TypeString}" Location="{resource.Location}" CachingMode="Never">
+                        <ImageFill ux:Binding="UserImage" Source="{DataToResource resource.UserImage}" />
                         <Clicked>
-                            <NavigateTo Target="{resource}"/>
+                            <NavigateTo Target="{resource.UserImage}"/>
                         </Clicked>
                     </Card>
                 </Each>
