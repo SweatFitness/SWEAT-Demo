@@ -1,5 +1,5 @@
 <App Theme="Basic">
-    <iOS.StatusBarConfig Style="Light" />
+    <iOS.StatusBarConfig ux:Name="iosStatusBar" Style="Light" />
 
     <ux:Include File="Resources.ux" />
     <!--     <ClientPanel Color="#d4fcaf"> -->
@@ -114,30 +114,30 @@
             <StackPanel Alignment="TopCenter" Margin="0,50,0,0">
                 <Text TextAlignment="Center" TextWrapping="Wrap">What type of workout?</Text>
                 <Text TextAlignment="Center" TextWrapping="Wrap">(Choose all that you'll be doing)</Text>
-                <Text TextAlignment="Left" Margin="0,20,0,0">Cardio</Text>
+                <Text TextAlignment="Left" Margin="0,15,0,0">Cardio</Text>
                 <Grid Columns="1*,1*" Margin="5,0,5,0">
-                    <Text Alignment="Center">Running</Text>
+                    <Text Alignment="CenterLeft">Running</Text>
                     <Switch />
                 </Grid>
                 <Grid Columns="1*,1*" Margin="5,0,5,0">
-                    <Text Alignment="Center">Cycling</Text>
+                    <Text Alignment="CenterLeft">Cycling</Text>
                     <Switch />
                 </Grid>
                 <Grid Columns="1*,1*" Margin="5,0,5,0">
-                    <Text Alignment="Center">Swimming</Text>
+                    <Text Alignment="CenterLeft">Swimming</Text>
                     <Switch />
                 </Grid>
-                <Text TextAlignment="Left" Margin="0,20,0,0">Weight</Text>
+                <Text TextAlignment="Left" Margin="0,15,0,0">Weight</Text>
                 <Grid Columns="1*,1*" Margin="5,0,5,0">
-                    <Text Alignment="Center">Chest/Triceps</Text>
-                    <Switch />
-                </Grid>
-                <Grid Columns="1*,1*" Margin="5,0,5,0">
-                    <Text Alignment="Center">Back/Biceps</Text>
+                    <Text Alignment="CenterLeft">Chest/Triceps</Text>
                     <Switch />
                 </Grid>
                 <Grid Columns="1*,1*" Margin="5,0,5,0">
-                    <Text Alignment="Center">Legs/Shoulders</Text>
+                    <Text Alignment="CenterLeft">Back/Biceps</Text>
+                    <Switch />
+                </Grid>
+                <Grid Columns="1*,1*" Margin="5,0,5,0">
+                    <Text Alignment="CenterLeft">Legs/Shoulders</Text>
                     <Switch />
                 </Grid>
             </StackPanel>
@@ -153,12 +153,133 @@
                     <Text TextColor="White" Value="NEXT" Alignment="Center" />
                     <Rectangle ux:Binding="Appearance" Color="Green" CornerRadius="25" />
                     <Clicked>
-                        <Set state.Active="createWorkoutTypeState"/>
+                        <Set state.Active="createWorkoutNumberState"/>
                     </Clicked>
                 </Panel>
             </Grid>
         </HidingPanel>
 
+        <HidingPanel ux:Name="createWorkoutNumberForm" Width="90%" Height="80%">
+            <StackPanel Alignment="TopCenter" Margin="50,50,50,0">
+                <Text TextAlignment="Center" TextWrapping="Wrap">How many people do you want to work out with?</Text>
+                <Grid Columns="1*,1*" Margin="40,20,5,0">
+                    <Text Alignment="CenterLeft">1</Text>
+                    <Switch ux:Name="switchNumber1">
+                        <WhileTrue>
+                            <Set switchNumber2.Value="false"/>
+                            <Set switchNumber3.Value="false"/>
+                            <Set switchNumberMore3.Value="false"/>
+                        </WhileTrue>
+                    </Switch>
+                </Grid>
+                <Grid Columns="1*,1*" Margin="40,5,5,0">
+                    <Text Alignment="CenterLeft">2</Text>
+                    <Switch ux:Name="switchNumber2">
+                        <WhileTrue>
+                            <Set switchNumber1.Value="false"/>
+                            <Set switchNumber3.Value="false"/>
+                            <Set switchNumberMore3.Value="false"/>
+                        </WhileTrue>
+                    </Switch>
+                </Grid>
+                <Grid Columns="1*,1*" Margin="40,5,5,0">
+                    <Text Alignment="CenterLeft">3</Text>
+                    <Switch ux:Name="switchNumber3">
+                        <WhileTrue>
+                            <Set switchNumber1.Value="false"/>
+                            <Set switchNumber2.Value="false"/>
+                            <Set switchNumberMore3.Value="false"/>
+                        </WhileTrue>
+                    </Switch>
+                </Grid>
+                <Grid Columns="1*,1*" Margin="40,5,5,0">
+                    <Text Alignment="CenterLeft">More than 3</Text>
+                    <Switch ux:Name="switchNumberMore3">
+                        <WhileTrue>
+                            <Set switchNumber1.Value="false"/>
+                            <Set switchNumber2.Value="false"/>
+                            <Set switchNumber3.Value="false"/>
+                        </WhileTrue>
+                    </Switch>
+                </Grid>
+            </StackPanel>
+            <StackPanel Alignment="Bottom" Margin="0,0,0,40">
+                <Panel Width="100" Height="50" HitTestMode="LocalBoundsAndChildren">
+                    <Text TextColor="White" Value="NEXT" Alignment="Center" />
+                    <Rectangle ux:Binding="Appearance" Color="Green" CornerRadius="25" />
+                    <Clicked>
+                        <Set state.Active="createWorkoutMatchState"/>
+                    </Clicked>
+                </Panel>
+                <Panel Width="100" Height="50" Margin="0,10,0,10">
+                    <Text TextColor="White" Value="BACK" Alignment="Center" />
+                    <Rectangle ux:Binding="Appearance" Color="Gray" CornerRadius="25" />
+                    <Clicked>
+                        <Set state.Active="createWorkoutTypeState"/>
+                    </Clicked>
+                </Panel>
+            </StackPanel>
+        </HidingPanel>
+
+        <HidingPanel ux:Name="createWorkoutMatchPanel">
+
+            <FileImageSource File="Assets/profile_1.png" ux:Key="profile1" />
+            <FileImageSource File="Assets/profile_2.png" ux:Key="profile2" />
+            <FileImageSource File="Assets/profile_3.png" ux:Key="profile3" />
+            <FileImageSource File="Assets/profile_4.png" ux:Key="profile4" />
+            <FileImageSource File="Assets/profile_5.png" ux:Key="profile5" />
+            <FileImageSource File="Assets/profile_6.png" ux:Key="profile6" />
+            <FileImageSource File="Assets/profile_7.png" ux:Key="profile7" />
+
+            <JavaScript>
+                var Observable = require("FuseJS/Observable");
+        
+                var profiles = Observable(
+                    { resource : "profile1" },
+                    { resource : "profile2" },
+                    { resource : "profile3" },
+                    { resource : "profile4" },
+                    { resource : "profile5" },
+                    { resource : "profile6" },
+                    { resource : "profile7" }
+                );
+
+                module.exports = {
+                    profiles : profiles
+                }
+            </JavaScript>
+
+            <Text Alignment="TopCenter" TextAlignment="Center" Margin="60,75,60,0" TextWrapping="Wrap">Here are some workouts you might be interested in joining!</Text>
+
+            <PageControl Transition="None" Interaction="None" InactiveState="Unchanged" Margin="0,100" ux:Name="navContext">
+                <LinearNavigation Duration="0.4" Easing="CircularOut"/>
+                <SwipeNavigate SwipeDirection="Left" />
+                <Each Items="{profiles}">
+                    <Card Name="{resource}" CachingMode="Never">
+                        <Image Source="{DataToResource resource}"/>
+                        <Clicked>
+                            <NavigateTo Target="{resource}"/>
+                        </Clicked>
+                    </Card>
+                </Each>
+            </PageControl>
+            <Grid Columns="1*,1*" Alignment="Bottom" Margin="20,0,20,20">
+                <Panel Width="100" Height="50">
+                    <Text TextColor="White" Value="BACK" Alignment="Center" />
+                    <Rectangle ux:Binding="Appearance" Color="Gray" CornerRadius="25" />
+                    <Clicked>
+                        <Set state.Active="createWorkoutNumberState"/>
+                    </Clicked>
+                </Panel>
+                <Panel Width="100" Height="50" HitTestMode="LocalBoundsAndChildren">
+                    <Text TextColor="White" Value="DONE" Alignment="Center" />
+                    <Rectangle ux:Binding="Appearance" Color="Green" CornerRadius="25" />
+                    <Clicked>
+                        <Set state.Active="mainState"/>
+                    </Clicked>
+                </Panel>
+            </Grid>
+        </HidingPanel>
 
         <HidingPanel ux:Name="genderForm" Width="90%" Height="45%" Offset="0%,10%">
             <StackPanel>
@@ -305,6 +426,12 @@
                 </Clicked>
             </HidingPanel>
             <HidingPanel ux:Name="cancelButton" Width="50" Height="50" Alignment="TopRight" Margin="0,45,5,0" HitTestMode="LocalBoundsAndChildren">
+                <Text Value="x" Alignment="Center" TextColor="White"/>
+                <Clicked>
+                    <Set state.Active="mainState"/>
+                </Clicked>
+            </HidingPanel>
+            <HidingPanel ux:Name="cancelButtonMatch" Width="50" Height="50" Alignment="TopRight" Margin="0,20,20,0" HitTestMode="LocalBoundsAndChildren">
                 <Text Value="x" Alignment="Center" TextColor="White"/>
                 <Clicked>
                     <Set state.Active="mainState"/>
