@@ -19,28 +19,53 @@
                         <Set state.Active="loginButtonState" />
                     </Clicked>
                 </Panel>
-                <Text Value="Feed" TextColor="White" FontSize="20" Alignment="VerticalCenter"/>
+                <Text Value="Home" TextColor="White" FontSize="20" Alignment="VerticalCenter"/>
                 <Image File="Icons/search.png" Width="30" Height="30"/>
             </Grid>
             <HidingPanel ux:Name="mainPanel">
-                <JavaScript>
-                    module.exports = {
-                        mockItems: ["#FF4C81","#F9ED46","#47BDF9","#F97947","#FF4C81","#F9ED46","#47BDF9","#F97947"]
-                    };
-                </JavaScript>
-                <ScrollView>
-                    <StackPanel Margin="25">
-                        <Each Items="{mockItems}">
-                            <DockPanel Height="100">
-                                <Circle Color="{}" Width="50" Height="50" Dock="Left"/>
-                                <StackPanel ItemSpacing="15" Height="100" Margin="20,0" Alignment="VerticalCenter">
-                                    <Rectangle Color="Gray" Height="10" Width="100%" Alignment="Left"/>
-                                    <Rectangle Color="Gray" Height="10" Width="80%" Alignment="Left" />
-                                </StackPanel>
-                            </DockPanel>
-                        </Each>
-                    </StackPanel>
-                </ScrollView>
+                <DockPanel>
+                    <PageControl ux:Name="pageControl">
+                        <Page>
+                            <StackPanel>
+                                <Text TextColor="TopGray" TextAlignment="Center" Margin="0,20,0,0" FontSize="32">These people...</Text>
+                                <Grid Columns="1*,1*">
+                                    <Card CardName="Ted Mosby" CardFill="#68C4DB" Location="Blom" TimeRange="09:00AM - 10:30AM" TypeString="Running, Chest/Triceps" ux:Name="mainCard1" ButtonOpac="0.0" HitTestMode="LocalBoundsAndChildren">
+                                        <ImageFill ux:Binding="UserImage" File="Assets/profile_1.png" />
+                                        <WhilePressed>
+                                            <Scale Delay="0.2" Factor="1.2" Duration="0.2" Easing="CubicInOut"/>
+                                        </WhilePressed>
+                                    </Card>
+                                    <Card CardName="Barney Stinson" CardFill="#E9BD70" Location="SPAC" TimeRange="08:00AM - 09:00AM" TypeString="Cycling, Legs/Shoulders" ux:Name="mainCard2" ButtonOpac="0.0" HitTestMode="LocalBoundsAndChildren">
+                                        <ImageFill ux:Binding="UserImage" File="Assets/profile_2.png" />
+                                        <WhilePressed>
+                                            <Scale Delay="0.2" Factor="1.2" Duration="0.2" Easing="CubicInOut"/>
+                                        </WhilePressed>
+                                    </Card>
+                                </Grid>
+                                <Text TextColor="BottomGray" TextAlignment="Center" FontSize="32">already worked out today!</Text>
+                            </StackPanel>
+                        </Page>
+                        <Page>
+                            <StackPanel>
+                                <Text TextColor="TopGray" Margin="0,20" TextAlignment="Center" FontSize="28" TextWrapping="Wrap">What have YOU done today?</Text>
+                                <Text TextColor="TopGray" TextAlignment="Center" FontSize="40">WHAT? NOTHING?</Text>
+                                <Image File="Assets/laugh.jpg" Height="240"/>
+                                <Text TextColor="BottomGray" Margin="0,20,0,0" TextAlignment="Center" FontSize="20" TextWrapping="Wrap">Find a workout buddy and work out</Text>
+                                <Text TextColor="BottomGray" Margin="0,25,0,0" TextAlignment="Center" FontSize="40">RIGHT NOW</Text>
+                                <Image File="Icons/DownRight-50.png" Alignment="BottomRight" Margin="0,0,80,100" Height="50">
+                                    <DropShadow/>
+                                </Image>
+                            </StackPanel>
+                        </Page>
+                    </PageControl>
+                    <PageIndicator Navigation="pageControl" Dock="Bottom" Alignment="BottomCenter">
+                        <Circle ux:Generate="Factory" ux:Binding="DotFactory" Fill="Teal" Margin="5" Width="6" Height="6">
+                            <ActivatingAnimation>
+                                <Scale Factor="1.5"/>
+                            </ActivatingAnimation>
+                        </Circle>
+                    </PageIndicator>
+                </DockPanel>
             </HidingPanel>
         </HidingPanel>
 

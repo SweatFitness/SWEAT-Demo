@@ -1,12 +1,13 @@
-<Panel ux:Class="Card" Height="256" Width="256" Alignment="Bottom" ux:Name="self" CardName="John Doe" Location="Wherever" TimeRange="01:00PM - 02:00PM" TypeString="Running" CardFill="#000" UserImage="#fff">
+<Panel ux:Class="Card" Height="256" Width="256" Alignment="Bottom" ux:Name="self" CardName="John Doe" Location="Wherever" TimeRange="01:00PM - 02:00PM" TypeString="Running" CardFill="#000" UserImage="#fff" ButtonOpac="1.0">
 	<string ux:Property="CardName" />
 	<string ux:Property="Location" />
 	<string ux:Property="TimeRange" />
 	<string ux:Property="TypeString" />
 	<Brush ux:Property="UserImage" />
 	<float4 ux:Property="CardFill" />
+	<float ux:Property="ButtonOpac" />
 	<Rectangle Fill="#eee" Opacity="0" ux:Name="overlayRect" CornerRadius="25" Layer="Overlay"/>
-	<Panel ux:Name="dismissBtn">
+	<Panel ux:Name="dismissBtn" Opacity="{Property self.ButtonOpac}">
 		<Rectangle ux:Binding="Appearance" Alignment="TopLeft" Margin="20,20,0,0" Width="20" Height="20">
 			<ImageFill File="Icons/Cancel-52.png" />
 		</Rectangle>
@@ -14,7 +15,7 @@
 	<Panel>
 		<Circle ux:Binding="Appearance" Alignment="TopCenter" Margin="0,20,0,0" Width="60" Height="60" Fill="{Property self.UserImage}" />
 	</Panel>
-	<Panel ux:Name="requestBtn">
+	<Panel ux:Name="requestBtn" Opacity="{Property self.ButtonOpac}">
 		<Circle ux:Binding="Appearance" Alignment="TopRight" Margin="0,35,43,0" Width="30" Height="30">
 			<ImageFill File="Icons/Plus-52.png" />
 		</Circle>

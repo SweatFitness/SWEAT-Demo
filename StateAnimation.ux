@@ -84,6 +84,8 @@
         <Change whiteRect.CornerRadius="0" Duration="0.2" DurationBack="0.2" />
         <Change logoPanel.IsEnabled="false" />
         <Scale Target="greenRect" Delay="0.9" Factor="1.2" Duration="0.2" Easing="CubicInOut"/>
+        <Scale Target="mainCard1" Delay="0.2" Factor="0.6" Duration="0.2" Easing="CubicInOut"/>
+        <Scale Target="mainCard2" Delay="0.2" Factor="0.6" Duration="0.2" Easing="CubicInOut"/>
         <!--Set whiteRectCornerRadiusAttractor.Value="0"/-->
 
         <Change mainPanel.IsEnabled="true" Delay="0.9"/>
@@ -93,6 +95,7 @@
         <Change addButton.IsEnabled="true" Delay="0.5"/>
 
         <BringToFront Target="addButtonPanel" />
+        <BringToFront Target="pageControl" />
     </State>
 
     <State Name="createWorkoutDateTimeState">
