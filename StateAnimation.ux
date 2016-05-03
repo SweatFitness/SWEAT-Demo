@@ -175,8 +175,6 @@
         <Change whiteRect.CornerRadius="0" Duration="0.2" />
         <!--Set whiteRectCornerRadiusAttractor.Value="0"/-->
 
-        <Set iosStatusBar.Style="Dark" />
-
         <Change createWorkoutMatchPanel.IsEnabled="true" Delay="0.5" />
         <Change greenRect.Opacity="1" Duration="0" />
         <Change cancelButtonMatch.IsEnabled="true" Delay="0.5"/>

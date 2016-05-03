@@ -70,10 +70,20 @@
         </HidingPanel>
 
         <HidingPanel ux:Name="createWorkoutDateTimeForm" Width="90%" Height="80%">
-            <Grid RowCount="3" Rows="50,65,65" Margin="20,50">
+            <Grid RowCount="4" Rows="50,50,50,50" Margin="20,50">
                 <Text TextAlignment="Center" TextWrapping="Wrap">When are you planning on working out?</Text>
-                <Text>Date</Text>
-                <Text>Time</Text>
+                <Grid Columns="2*,3*">
+                    <Text Alignment="Right" Margin="0,7,0,0">Date:</Text>
+                    <TextInput Value="5/2/2016" />
+                </Grid>
+                <Grid Columns="2*,3*">
+                    <Text Alignment="Right"  Margin="0,7,0,0">Starting at: </Text>
+                    <TextInput Value="01:00 PM" />
+                </Grid>
+                <Grid Columns="2*,3*">
+                    <Text Alignment="Right"  Margin="0,7,0,0">Ending at: </Text>
+                    <TextInput Value="02:00 PM" />
+                </Grid>
             </Grid>
             <StackPanel Alignment="Bottom" Margin="0,0,0,40">
                 <Panel Width="100" Height="50" HitTestMode="LocalBoundsAndChildren">
